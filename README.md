@@ -1,4 +1,4 @@
-# opc-skill
+# opc-business-skill
 
 给「一人公司 / 小微企业」用的 **Claude Code / Claude Agent Skill**：
 把北京注册一家公司之后**必须自己搞定的政务流程**，连同踩过的坑，整理成可被 AI 直接调用的操作手册。
@@ -29,7 +29,7 @@
 ## 安装
 
 ```bash
-git clone https://github.com/<你的账号>/opc-skill.git ~/.claude/skills/bj-company-affairs
+git clone https://github.com/nuass/opc-business-skill.git ~/.claude/skills/bj-company-affairs
 ```
 
 或者放进项目的 `.claude/skills/` 下。之后直接问：
@@ -85,6 +85,15 @@ references/
 - `cloud-server.md` **刻意不给任何"一年多少钱"的总价**：云厂商折扣变动频繁，过期的总价数字比没有更糟。
   给的是价格由哪三段构成、每段的坑在哪，自己去询价。
 - `miniapp-filing.md` 引的是微信运营规范条款号与备案指引，**平台规则会改**，以官方原文为准。
+
+## 这一族
+
+`opc-*-skill` 按领域分仓，一仓一个 skill，clone 下来直接就是 `~/.claude/skills/` 里的一项。
+
+| 仓库 | 覆盖 | 状态 |
+|---|---|---|
+| `opc-business-skill`（本仓库） | 政务办事：工商 · 税务 · 社保 · 公积金 · 发薪 · 备案 · 域名与服务器 | 已发布 |
+| `opc-tech-skill` | 技术侧的踩坑与自动化姿势 | **计划中，尚未发布** |
 
 ## License
 
