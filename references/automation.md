@@ -106,6 +106,17 @@ store 的 `SET_DICE_LIST` 往往是整体覆盖（`state.dictList = t`）。
   select 类控件要先触发 `onVisibleChange(true)` 再选。
 - 兜底再考虑真鼠标点击。
 
+## 6.5 React 受控表单（Ant Design 2 / React 15，税务社保费客户端）
+
+- 用原生 value setter + dispatch `input/change` 合成事件**不会更新 React state**：
+  值看着填进去了，【保存/提交】按钮仍保持 disabled。**必须真鼠标点进输入框聚焦，
+  再用 CDP `Input.insertText` 写值**。
+- 覆盖已填值：先**三击（`clickCount:3`）全选**再 insertText；直接 insertText 会追加，
+  Cmd+A 在部分输入框里不生效（曾把同一个数叠写成三段）。
+- 弹框里同名按钮在 DOM 里可能有**隐藏副本**（`getBoundingClientRect` 全 0），
+  选择器命中隐藏那个 ⇒ 点击 no-op 且不报错。先按 `offsetParent !== null`
+  过滤出可见按钮再取坐标点。
+
 ## 7. 弹窗与验证
 
 - **自定义确认框不一定是 `.el-message-box`**。找不到就**直接 dump `document.body.innerText`**，
